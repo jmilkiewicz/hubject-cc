@@ -12,11 +12,52 @@ public abstract class ServiceResponse {
     public interface Mapper<T> {
         T mapOkResponse(OkResponse okResponse);
 
+        T mapEntityCreatedResponse(EntityCreatedResponse entityCreated);
+
         T mapValidationErrorResponse(ValidationErrorResponse validationErrorResponse);
 
         T mapNotFoundResponse(NotFoundResponse notFoundResponse);
 
     }
+
+    public static final class EntityCreatedResponse extends ServiceResponse {
+
+        private final String entityName;
+        private final String entityId;
+
+        public EntityCreatedResponse(String entityName, String entityId) {
+            this.entityName = entityName;
+            this.entityId = entityId;
+        }
+
+        @Override
+        public <T> T map(Mapper<T> mapper) {
+            return mapper.mapEntityCreatedResponse(this);
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            EntityCreatedResponse that = (EntityCreatedResponse) o;
+            return Objects.equals(entityName, that.entityName) &&
+                    Objects.equals(entityId, that.entityId);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(entityName, entityId);
+        }
+
+        public String getEntityName() {
+            return entityName;
+        }
+
+        public String getEntityId() {
+            return entityId;
+        }
+    }
+
 
     public static final class OkResponse extends ServiceResponse {
         public static final OkResponse Empty = new OkResponse(null);

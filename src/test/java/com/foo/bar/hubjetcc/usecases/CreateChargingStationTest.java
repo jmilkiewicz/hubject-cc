@@ -22,6 +22,6 @@ public class CreateChargingStationTest {
         CharginStationRequest charginStationRequest = new CharginStationRequest("someId", 13.413215, 52.521918, "10178");
         ServiceResponse serviceResponse = sut.addChargingStation(charginStationRequest);
 
-        assertThat(serviceResponse, is(ServiceResponse.OK));
+        assertThat(serviceResponse, is(new ServiceResponse.EntityCreatedResponse("chargingStation", charginStationRequest.getGuid())));
     }
 }
