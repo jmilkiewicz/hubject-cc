@@ -7,13 +7,16 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import java.util.stream.Collectors;
 
 public class DummyChargingStationsDao implements ChargingStationDao {
     private final ConcurrentMap<String, ChargingStation> storage = new ConcurrentHashMap<>();
 
     @Override
-    public List<ChargingStation> getChargingStationByPostCode(String anyString) {
-        return null;
+    public List<ChargingStation> getChargingStationByPostCode(String postCode) {
+        return storage.values().stream()
+                .filter(chargingStation -> postCode.equals(chargingStation.getPostCode()))
+                .collect(Collectors.toList());
     }
 
     @Override

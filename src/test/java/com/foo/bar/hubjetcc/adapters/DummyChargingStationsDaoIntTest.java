@@ -51,9 +51,9 @@ public class DummyChargingStationsDaoIntTest {
 
     @Test
     public void shallReturnChargingStationsWithGivenPostCode() {
-        ChargingStation chargingStation1 = sampleChargingStation;
-        ChargingStation chargingStation2 = sampleChargingStation.withPostCode(sampleChargingStation.getPostCode() + "c");
-        ChargingStation chargingStation3 = sampleChargingStation.withGuid("other");
+        ChargingStation chargingStation1 = sampleChargingStation.withGuid("st1");
+        ChargingStation chargingStation2 = sampleChargingStation.withGuid("st2").withPostCode(sampleChargingStation.getPostCode() + "c");
+        ChargingStation chargingStation3 = sampleChargingStation.withGuid("st3");
         sut.upsertChargingStation(chargingStation1);
         sut.upsertChargingStation(chargingStation2);
         sut.upsertChargingStation(chargingStation3);
