@@ -11,7 +11,10 @@ public class DummyChargingStationsDao implements ChargingStationDao {
 
     @Override
     public UpsertResult upsertChargingStation(ChargingStation chargingStation) {
-        storage.put(chargingStation.getGuid(), chargingStation);
-        return UpsertResult.CREATED;
+        ChargingStation prev = storage.put(chargingStation.getGuid(), chargingStation);
+        if(prev == null){
+            return UpsertResult.CREATED;
+        }
+        return UpsertResult.UPDATED;
     }
 }

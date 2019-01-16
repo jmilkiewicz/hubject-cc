@@ -12,14 +12,21 @@ import static org.junit.Assert.*;
 // but it is still here to show how i believe it shall be done
 public class DummyChargingStationsDaoIntTest {
     private final ChargingStation sampleChargingStation = new ChargingStation("1", new LatLon(1.2, 2.3), "12121");
-
+    private final DummyChargingStationsDao sut = new DummyChargingStationsDao();
     @Test
     public void shallReturnCreatedIfNoChargingStationWithGivenIdAlreadyExists() {
-        DummyChargingStationsDao dummyChargingStationsDao = new DummyChargingStationsDao();
-
-        ChargingStationDao.UpsertResult upsertResult = dummyChargingStationsDao.upsertChargingStation(sampleChargingStation);
+        ChargingStationDao.UpsertResult upsertResult = sut.upsertChargingStation(sampleChargingStation);
 
         assertThat(upsertResult,is(ChargingStationDao.UpsertResult.CREATED));
+    }
+
+    @Test
+    public void shallReturnUpdatedIfChargingStationWithGivenIdAlreadyExists() {
+        sut.upsertChargingStation(sampleChargingStation);
+
+        ChargingStationDao.UpsertResult upsertResult = sut.upsertChargingStation(sampleChargingStation);
+
+        assertThat(upsertResult,is(ChargingStationDao.UpsertResult.UPDATED));
     }
 
 }
