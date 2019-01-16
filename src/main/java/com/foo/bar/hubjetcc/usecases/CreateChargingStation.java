@@ -10,6 +10,6 @@ public class CreateChargingStation {
     }
 
     public ServiceResponse addChargingStation(CharginStationRequest charginStationRequest) {
-        return ServiceResponse.OK;
+        return new ServiceResponse.EntityCreatedResponse("chargingStation",charginStationRequest.getGuid());
     }
 }
