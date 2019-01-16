@@ -10,6 +10,6 @@ public class CreateChargingStation {
     }
 
     public ServiceResponse addChargingStation(CharginStationRequest charginStationRequest) {
-        return  null;
+        return ServiceResponse.OK;
     }
 }
