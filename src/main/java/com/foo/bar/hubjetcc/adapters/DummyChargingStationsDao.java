@@ -27,6 +27,7 @@ public class DummyChargingStationsDao implements ChargingStationDao {
 
     @Override
     public Optional<ChargingStation> getChargingStationById(String chargingStationId) {
-        return Optional.empty();
+        ChargingStation chargingStation = storage.get(chargingStationId);
+        return Optional.ofNullable(chargingStation);
     }
 }

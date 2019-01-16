@@ -5,6 +5,8 @@ import com.foo.bar.hubjetcc.model.LatLon;
 import com.foo.bar.hubjetcc.ports.ChargingStationDao;
 import org.junit.Test;
 
+import java.util.Optional;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
@@ -28,5 +30,23 @@ public class DummyChargingStationsDaoIntTest {
 
         assertThat(upsertResult,is(ChargingStationDao.UpsertResult.UPDATED));
     }
+
+    @Test
+    public void shallReturnSomeWhenChargingStationWithGivenIdExists() {
+        sut.upsertChargingStation(sampleChargingStation);
+
+        Optional<ChargingStation> chargingStationById = sut.getChargingStationById(sampleChargingStation.getGuid());
+
+        assertThat(chargingStationById, is(Optional.of(sampleChargingStation)));
+    }
+
+    @Test
+    public void shallReturnNoneWhenChargingStationWithGivenIdNotExists() {
+        Optional<ChargingStation> chargingStationById = sut.getChargingStationById("foobar");
+
+        assertThat(chargingStationById, is(Optional.empty()));
+    }
+
+
 
 }
