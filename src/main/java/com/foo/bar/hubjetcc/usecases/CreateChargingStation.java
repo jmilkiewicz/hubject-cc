@@ -33,4 +33,8 @@ public class CreateChargingStation {
                 .<ServiceResponse>map(ServiceResponse.OkResponse::new)
                 .orElse(ServiceResponse.NOT_FOUND);
     }
+
+    public ServiceResponse getChargingStationByPostCode(String somePostCode) {
+        return null;
+    }
 }

@@ -2,9 +2,12 @@ package com.foo.bar.hubjetcc.ports;
 
 import com.foo.bar.hubjetcc.model.ChargingStation;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface ChargingStationDao {
+    List<ChargingStation> getChargingStationByPostCode(String anyString);
+
     static enum UpsertResult {
         UPDATED, CREATED
     }
