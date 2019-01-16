@@ -23,4 +23,8 @@ public class CreateChargingStation {
         return ServiceResponse.OkResponse.Empty;
 
     }
+
+    public ServiceResponse getChargingStationById(String chargingStationId) {
+        return null;
+    }
 }

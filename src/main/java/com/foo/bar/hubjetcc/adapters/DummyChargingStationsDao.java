@@ -3,6 +3,7 @@ package com.foo.bar.hubjetcc.adapters;
 import com.foo.bar.hubjetcc.model.ChargingStation;
 import com.foo.bar.hubjetcc.ports.ChargingStationDao;
 
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
@@ -16,5 +17,10 @@ public class DummyChargingStationsDao implements ChargingStationDao {
             return UpsertResult.CREATED;
         }
         return UpsertResult.UPDATED;
+    }
+
+    @Override
+    public Optional<ChargingStation> getChargingStationById(String chargingStationId) {
+        return Optional.empty();
     }
 }

@@ -3,7 +3,7 @@ package com.foo.bar.hubjetcc.usecases;
 import java.util.*;
 
 public abstract class ServiceResponse {
-    //public static final NotFoundResponse NOT_FOUND = new NotFoundResponse();
+    public static final NotFoundResponse NOT_FOUND = new NotFoundResponse();
     public abstract <T> T map(Mapper<T> mapper);
 
     public interface Mapper<T> {
