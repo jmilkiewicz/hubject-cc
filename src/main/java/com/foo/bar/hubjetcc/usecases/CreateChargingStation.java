@@ -4,6 +4,8 @@ import com.foo.bar.hubjetcc.model.ChargingStation;
 import com.foo.bar.hubjetcc.model.LatLon;
 import com.foo.bar.hubjetcc.ports.ChargingStationDao;
 
+import java.util.Optional;
+
 public class CreateChargingStation {
     private final ChargingStationDao chargingStationDao;
 
@@ -25,6 +27,10 @@ public class CreateChargingStation {
     }
 
     public ServiceResponse getChargingStationById(String chargingStationId) {
-        return null;
+        Optional<ChargingStation> chargingStationById = chargingStationDao.getChargingStationById(chargingStationId);
+
+        return chargingStationById
+                .<ServiceResponse>map(ServiceResponse.OkResponse::new)
+                .orElse(ServiceResponse.NOT_FOUND);
     }
 }
