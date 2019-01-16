@@ -39,4 +39,6 @@ public class CreateChargingStationTest {
     }
 
     //TODO add test to check if mock dao is executed with valid parameter
+
+    //TODO add tests which validates correctness of  CharginStationRequest - can use HibernateValidator for this
 }
