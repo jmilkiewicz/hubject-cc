@@ -4,6 +4,7 @@ import com.foo.bar.hubjetcc.model.ChargingStation;
 import com.foo.bar.hubjetcc.model.LatLon;
 import com.foo.bar.hubjetcc.ports.ChargingStationDao;
 
+import java.util.List;
 import java.util.Optional;
 
 public class CreateChargingStation {
@@ -34,7 +35,8 @@ public class CreateChargingStation {
                 .orElse(ServiceResponse.NOT_FOUND);
     }
 
-    public ServiceResponse getChargingStationByPostCode(String somePostCode) {
-        return null;
+    public ServiceResponse getChargingStationByPostCode(String postCode) {
+        List<ChargingStation> chargingStationByPostCode = chargingStationDao.getChargingStationByPostCode(postCode);
+        return new ServiceResponse.OkResponse(chargingStationByPostCode);
     }
 }

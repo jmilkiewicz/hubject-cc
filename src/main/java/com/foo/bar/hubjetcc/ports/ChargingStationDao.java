@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ChargingStationDao {
-    List<ChargingStation> getChargingStationByPostCode(String anyString);
+    List<ChargingStation> getChargingStationByPostCode(String postCode);
 
     static enum UpsertResult {
         UPDATED, CREATED
