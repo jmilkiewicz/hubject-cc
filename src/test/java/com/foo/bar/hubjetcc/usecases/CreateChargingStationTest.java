@@ -17,22 +17,24 @@ import static org.mockito.Mockito.when;
 public class CreateChargingStationTest {
     @Mock
     private ChargingStationDao mockedChargingStationDao;
-    private CreateChargingStation sut = new CreateChargingStation(mockedChargingStationDao);
+
     private CharginStationRequest someChargingStationRequest = new CharginStationRequest("someId", 13.413215, 52.521918, "10178");
 
     @Test
     public void shallAddNewBrandingChargingStation() {
-        ServiceResponse serviceResponse = sut.addChargingStation(someChargingStationRequest);
+        CreateChargingStation sut = new CreateChargingStation(mockedChargingStationDao);
         when(mockedChargingStationDao.upsertChargingStation(Mockito.any(ChargingStation.class))).thenReturn(ChargingStationDao.UpsertResult.CREATED);
+        ServiceResponse serviceResponse = sut.addChargingStation(someChargingStationRequest);
+
 
         assertThat(serviceResponse, is(new ServiceResponse.EntityCreatedResponse("chargingStation", someChargingStationRequest.getGuid())));
     }
 
     @Test
     public void shallUpdateExistingChargingStation() {
-        ServiceResponse serviceResponse = sut.addChargingStation(someChargingStationRequest);
-
+        CreateChargingStation sut = new CreateChargingStation(mockedChargingStationDao);
         when(mockedChargingStationDao.upsertChargingStation(Mockito.any(ChargingStation.class))).thenReturn(ChargingStationDao.UpsertResult.UPDATED);
+        ServiceResponse serviceResponse = sut.addChargingStation(someChargingStationRequest);
 
         assertThat(serviceResponse, is(ServiceResponse.OkResponse.Empty));
     }
