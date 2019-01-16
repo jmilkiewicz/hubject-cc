@@ -11,7 +11,7 @@ public class CreateChargingStation {
         this.chargingStationDao = chargingStationDao;
     }
 
-    public ServiceResponse addChargingStation(CharginStationRequest charginStationRequest) {
+    public ServiceResponse addChargingStation(CreateChargingStationInput charginStationRequest) {
         ChargingStationDao.UpsertResult upsertResult = chargingStationDao.upsertChargingStation(
                 new ChargingStation(
                         charginStationRequest.getGuid(),

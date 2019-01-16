@@ -2,13 +2,13 @@ package com.foo.bar.hubjetcc.usecases;
 
 import java.util.Objects;
 
-public class CharginStationRequest {
+public class CreateChargingStationInput {
     private final String guid;
     private final double lat;
     private final double lon;
     private final String postCode;
 
-    public CharginStationRequest(String guid, double lat, double lon, String postCode) {
+    public CreateChargingStationInput(String guid, double lat, double lon, String postCode) {
         this.guid = guid;
         this.lat = lat;
         this.lon = lon;
@@ -36,7 +36,7 @@ public class CharginStationRequest {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CharginStationRequest that = (CharginStationRequest) o;
+        CreateChargingStationInput that = (CreateChargingStationInput) o;
         return Objects.equals(guid, that.guid) &&
                 Objects.equals(lat, that.lat) &&
                 Objects.equals(lon, that.lon) &&

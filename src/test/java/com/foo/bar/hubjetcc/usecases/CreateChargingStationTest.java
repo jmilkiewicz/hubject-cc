@@ -15,7 +15,7 @@ public class CreateChargingStationTest {
     private ChargingStationDao mockedChargingStationDao = Mockito.mock(ChargingStationDao.class);
     private CreateChargingStation sut = new CreateChargingStation(mockedChargingStationDao);
 
-    private CharginStationRequest someChargingStationRequest = new CharginStationRequest("someId", 13.413215, 52.521918, "10178");
+    private CreateChargingStationInput someChargingStationRequest = new CreateChargingStationInput("someId", 13.413215, 52.521918, "10178");
 
     @Test
     public void shallAddNewBrandingChargingStation() {
@@ -40,5 +40,5 @@ public class CreateChargingStationTest {
 
     //TODO add test to check if mock dao is executed with valid parameter
 
-    //TODO add tests which validates correctness of  CharginStationRequest - can use HibernateValidator for this
+    //TODO add tests which validates correctness of  CreateChargingStationInput - can use HibernateValidator for this
 }
