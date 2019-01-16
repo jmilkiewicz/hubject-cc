@@ -42,4 +42,5 @@ public class GetChargingStationByIdTest {
         when(mockedChargingStationDao.getChargingStationById(Mockito.anyString())).thenReturn(chargingStation);
     }
 
+    //TODO add test that dao is invoked with expected paramere
 }
