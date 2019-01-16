@@ -17,6 +17,14 @@ public class ChargingStation {
         return guid;
     }
 
+    public ChargingStation withPostCode(String newPostCode){
+        return new ChargingStation(guid,location, newPostCode);
+    }
+
+    public ChargingStation withGuid(String newGuid){
+        return new ChargingStation(newGuid,location, postCode);
+    }
+
     public LatLon getLocation() {
         return location;
     }
@@ -38,5 +46,14 @@ public class ChargingStation {
     @Override
     public int hashCode() {
         return Objects.hash(guid, location, postCode);
+    }
+
+    @Override
+    public String toString() {
+        return "ChargingStation{" +
+                "guid='" + guid + '\'' +
+                ", location=" + location +
+                ", postCode='" + postCode + '\'' +
+                '}';
     }
 }

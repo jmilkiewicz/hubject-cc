@@ -32,4 +32,12 @@ public class LatLon {
     public int hashCode() {
         return Objects.hash(lat, lon);
     }
+
+    @Override
+    public String toString() {
+        return "LatLon{" +
+                "lat=" + lat +
+                ", lon=" + lon +
+                '}';
+    }
 }
