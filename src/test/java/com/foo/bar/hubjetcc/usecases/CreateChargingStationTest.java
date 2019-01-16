@@ -38,4 +38,5 @@ public class CreateChargingStationTest {
         when(mockedChargingStationDao.upsertChargingStation(Mockito.any(ChargingStation.class))).thenReturn(upsertResult);
     }
 
+    //TODO add test to check if mock dao is executed with valid parameter
 }
