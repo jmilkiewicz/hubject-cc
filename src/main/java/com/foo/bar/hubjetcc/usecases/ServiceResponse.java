@@ -3,9 +3,6 @@ package com.foo.bar.hubjetcc.usecases;
 import java.util.*;
 
 public abstract class ServiceResponse {
-
-
-    public static final OkResponse OK = new OkResponse(null);
     //public static final NotFoundResponse NOT_FOUND = new NotFoundResponse();
     public abstract <T> T map(Mapper<T> mapper);
 
@@ -28,6 +25,14 @@ public abstract class ServiceResponse {
         public EntityCreatedResponse(String entityName, String entityId) {
             this.entityName = entityName;
             this.entityId = entityId;
+        }
+
+        @Override
+        public String toString() {
+            return "EntityCreatedResponse{" +
+                    "entityName='" + entityName + '\'' +
+                    ", entityId='" + entityId + '\'' +
+                    '}';
         }
 
         @Override
