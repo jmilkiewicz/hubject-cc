@@ -36,5 +36,6 @@ public class End2EndTests {
 				.andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON));
 	}
 
+	//TODO we can think of adding more of these e2e tests but i am not big fan of e2e tests
 }
 
