@@ -9,10 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.foo.bar</groupId>
-	<artifactId>hubjet-cc</artifactId>
+	<artifactId>hubject-cc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>hubjet-cc</name>
-	<description>Demo project for Spring Boot</description>
+	<name>hubject-cc</name>
 
 	<properties>
 		<java.version>1.8</java.version>
