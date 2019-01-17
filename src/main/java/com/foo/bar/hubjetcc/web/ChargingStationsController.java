@@ -24,6 +24,16 @@ public class ChargingStationsController {
         return serviceResponse.map(mapper);
     }
 
+    @GetMapping("{id}")
+    public ResponseEntity getChargingStationById(@PathVariable("id") String id) {
+        return createChargingStation.getChargingStationById(id).map(mapper);
+    }
+
+    @GetMapping()
+    public ResponseEntity getChargingStationByPostCode(@RequestParam("postCode") String postCode) {
+        return createChargingStation.getChargingStationByPostCode(postCode).map(mapper);
+    }
+
     private CreateChargingStationInput buildCreateChargingStationInput(@PathVariable("id") String id, CreateChargingStationRequest createChargingStationRequest) {
         return new CreateChargingStationInput(id, createChargingStationRequest.getLat(), createChargingStationRequest.getLon(), createChargingStationRequest.getPostCode());
     }
