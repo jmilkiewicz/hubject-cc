@@ -63,6 +63,7 @@ public class DummyChargingStationsDaoIntTest {
         assertThat(chargingStationByPostCode, containsInAnyOrder(chargingStation1, chargingStation3));
     }
 
+    //TODO test for postcode case insensitive search
 
 
 }
