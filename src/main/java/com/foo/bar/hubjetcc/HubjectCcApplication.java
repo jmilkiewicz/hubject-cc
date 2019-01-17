@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HubjetCcApplication {
+public class HubjectCcApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HubjetCcApplication.class, args);
+		SpringApplication.run(HubjectCcApplication.class, args);
 	}
 
 }
