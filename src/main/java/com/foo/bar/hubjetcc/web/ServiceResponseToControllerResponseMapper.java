@@ -29,6 +29,6 @@ public class ServiceResponseToControllerResponseMapper implements ServiceRespons
 
     @Override
     public ResponseEntity mapNotFoundResponse(ServiceResponse.NotFoundResponse notFoundResponse) {
-        return null;
+        return ResponseEntity.notFound().build();
     }
 }
